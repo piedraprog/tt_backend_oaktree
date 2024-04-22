@@ -7,7 +7,7 @@ import xlsx from "xlsx";
 // Configurar Multer para guardar archivos en una carpeta específica
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "uploads/")); // Carpeta donde se guardarán los archivos, relativa al directorio del script
+    cb(null, path.join(__dirname, "/uploads/")); // Carpeta donde se guardarán los archivos, relativa al directorio del script
   },
   filename: function (req, file, cb) {
     // Generar un nombre de archivo único
