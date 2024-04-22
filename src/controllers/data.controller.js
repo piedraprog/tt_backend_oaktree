@@ -32,11 +32,11 @@ export const uploadData = async (req, res) => {
     // Devolver la ruta donde se ha almacenado el archivo
     const filePath = req.file.path;
     const transformedPath = filePath.replace(/\\/g, "/");
-
+    console.log("filePath", filePath)
     try {
-      const data = procesarDatosExcel(transformedPath);
+      // const data = procesarDatosExcel(transformedPath);
 
-      const result = await models.invoiceData.insertMany(data);
+      // const result = await models.invoiceData.insertMany(data);
 
       res.status(200).send({
         code: 200,
