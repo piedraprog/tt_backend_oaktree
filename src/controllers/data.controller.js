@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-const uploadMiddleware = upload.single("excelFile");
+const uploadMiddleware = upload.single("file");
 //UPLOAD THE ARCHIVE
 export const uploadData = async (req, res) => {
   uploadMiddleware(req, res, async (err) => {
@@ -139,9 +139,10 @@ export const generateInvoice = async (req, res) => {
     ]);
 
     if(facturaData.length === 0) {
-        return res.status(404).send({
-            code: 404,
-            message: "No se encontro data"
+        return res.status(200).send({
+            code: 200,
+            message: "No se encontró data",
+            data: []
         })
     }
     return res.status(200).send({
